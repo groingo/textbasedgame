@@ -107,4 +107,3 @@ async def download_game(game_id: str):
 
     # Return the file as a response using FileResponse
     return FileResponse(file_path, filename=f"{game_id}", as_attachment=True)
-```
