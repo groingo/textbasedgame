@@ -1,4 +1,5 @@
 {
+    "sslEnabled": "no",
     "certfile": "cert.pem",
     "keyfile": "key.pem"
 }
