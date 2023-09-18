@@ -1,0 +1,4 @@
+{
+    "certfile": "/etc/ssl/cert.crt",
+    "keyfile": "/etc/ssl/key.key"
+}

@@ -12,9 +12,11 @@ Parent = os.path.dirname(os.path.realpath(__file__))
 server_config = json.load(open(f"{Parent}/config.json", "r"))
 
 if __name__ == "__main__":
-    #ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-    #ssl_context.load_cert_chain("cert.pem", "key.pem")
-    config = uvicorn.Config("main:app", port=8443, log_level="info")
+    cert = server_config["certfile"]
+    key = server_config["keyfile"]
+    ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    ssl_context.load_cert_chain(cert, key)
+    config = uvicorn.Config("main:app", port=8444, log_level="info")
     server = uvicorn.Server(config)
     server.run()
 
@@ -91,7 +93,7 @@ async def login(userdata: UserData):
 async def get_games():
     # Retrieve the list of available games
     games = [
-        GameData(game_id="stalker.py", name="stalker placeholder", description="quick one made by hero", download_url="http://127.0.0.1:8000/game1")
+        GameData(game_id="stalker.py", name="stalker placeholder", description="quick one made by hero", download_url="http://127.0.0.1:8444/stalker.py")
         # Add more games as needed
     ]
 
