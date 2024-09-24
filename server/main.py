@@ -91,7 +91,7 @@ async def login(userdata: UserData):
 async def get_games():
     # Retrieve the list of available games
     games = [
-        GameData(game_id="stalker.py", name="stalker placeholder", description="quick one made by hero", download_url="http://127.0.0.1:8000/game1")
+        GameData(game_id="stalker.py", name="test", description="test", download_url="http://127.0.0.1:8000/game1")
         # Add more games as needed
     ]
 
